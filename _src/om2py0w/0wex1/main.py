@@ -11,15 +11,16 @@ script, text = argv
 if exists(text) == True:
 	print """
 	日记文档已经存在!!!
-	是否要补充此日记? 输入 y继续 n退出
+	是否要补充此日记? 输入 y继续 n或"回车"退出
 	"""
 	judge1 = raw_input()
 
 	#确认补充日记
+	##Q为什么writelines写入时不能换行?
 	if judge1 == "y":
 		content1 = raw_input("补充日记:")
 		txt1 = open(text, 'a')
-		txt1.write(content1)
+		txt1.writelines(content1)
 		txt1.close
 		print "已经保存!"
 	#如果不追加日记内容, 重新写日记
@@ -44,8 +45,9 @@ else:
 
 print "是否要查看其他日记? 输入 y继续 n或者\"回车\"退出 "
 
-###Q如何命名变量,比如这个地方
-goon = raw_input("")
+
+###Q如何命名变量,比如这个地方?
+goon = raw_input("输入:")
 if goon == "y":
 
 	txt = raw_input("请输入日记名称:")
