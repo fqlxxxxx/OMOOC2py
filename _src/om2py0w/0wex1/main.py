@@ -21,21 +21,33 @@ txt.close
 print "已经保存日记"
 
 
-print "是否要继续查看其他日记? 点击回车继续! 退出 control+C"
+#查看历史日记
 
-raw_input(">")
+print "是否要继续查看其他日记? 输入 y继续 n退出 "
 
-txt = raw_input("请输入日记名称:")
+###Q如何命名变量,比如这个地方
+goon = raw_input("")
+if goon == "y":
 
-print "日记是否存在? %r" % exists(txt)
+	txt = raw_input("请输入日记名称:")
 
-R = open(txt)
+	#判断输入的日记名是否存在
+	judge = exists(txt)
 
-print R.read()
+	#如果True, 则显示日记内容
+	#如果False, 则提示日记不存在
+	if judge == True:
+		print "%s的日记内容是:" % txt
+		
+		R = open(txt)
 
-R.close
+		print R.read()
 
-
+		R.close
+	else:
+		print "您查询的日记不存在!"
+else:
+	print "退出日记"
 
 
 
