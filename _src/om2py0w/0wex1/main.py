@@ -7,11 +7,29 @@ from os.path import exists
 
 script, text = argv
 
+
+
+while True:
+	input1 = raw_input("写吧:") 
+	content = open(text, "a")
+	content.write(input1)
+	if input1 == "quit":
+		input2 = raw_input("真要退出?Y/N")
+		if input2 == "Y" or "y":
+			break
+			print "已退出并保存"
+		else:
+			continue
+
+	
+
+
+'''
 #判断输入的日记名称是否重复,如果输入的日记名称已经存在, 可以继续追加
 if exists(text) == True:
 	print """
-	日记文档已经存在!!!
-	是否要补充此日记? 输入 y继续 n或"回车"退出
+	#日记文档已经存在!!!
+	#是否要补充此日记? 输入 y继续 n或"回车"退出
 	"""
 	judge1 = raw_input()
 
@@ -69,7 +87,7 @@ if goon == "y":
 			print "您查询的日记不存在!"
 else:
 	print "退出日记"
-
+'''
 
 
 
