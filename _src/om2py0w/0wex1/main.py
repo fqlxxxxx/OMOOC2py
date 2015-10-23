@@ -4,6 +4,7 @@
 
 from sys import argv
 from os.path import exists
+import time, datetime  #导入时间模块
 
 script, text = argv
 
@@ -14,21 +15,26 @@ if exists(text):
 
 while True:
 	print "添加新日记:"
+	now = datetime.datetime.now() #获取当前时间
 	input1 = raw_input(">") 
 	content = open(text, "a")
-	content.writelines(input1)
+	content.write(input1)
+	content.write("%s" % now) #记录时间, write 只能写入字符串, 日期无法直接写入, 因此用字符串替换的方式转换一下
+	content.write("\n") #解决写入日记换行问题
+	content.close
 	if input1 == "quit":
 		input2 = raw_input("真要退出?y/n:")
 		if input2 == "y":
+			print "已退出并保存"
 			break
 		if input2 == "n":
 			continue
-print "已退出并保存"
 		
 			
 
 
-	
+
+
 
 
 '''
