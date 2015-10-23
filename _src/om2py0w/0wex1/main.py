@@ -7,19 +7,26 @@ from os.path import exists
 
 script, text = argv
 
-
+if exists(text):
+	print "历史日记:"
+	p = open(text, "r")
+	print p.read()
 
 while True:
-	input1 = raw_input("写吧:") 
+	print "添加新日记:"
+	input1 = raw_input(">") 
 	content = open(text, "a")
-	content.write(input1)
+	content.writelines(input1)
 	if input1 == "quit":
-		input2 = raw_input("真要退出?Y/N")
-		if input2 == "Y" or "y":
+		input2 = raw_input("真要退出?y/n:")
+		if input2 == "y":
 			break
-			print "已退出并保存"
-		else:
+		if input2 == "n":
 			continue
+print "已退出并保存"
+		
+			
+
 
 	
 
