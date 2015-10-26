@@ -29,3 +29,7 @@ Label(root,
 
 root.title("极简日记本")
 root.mainloop()
+
+
+
+
