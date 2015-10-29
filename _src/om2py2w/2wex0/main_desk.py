@@ -1,27 +1,37 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 
 
-from Tkinter import *
-from os.path import exists
+from Tkinter import *  # import Tkinter module
 
-root = Tk()
-Frame(height=700, width=600, bg="white").pack()
-# 修改 frame 窗体头部名称
-root.title(" 极简日记本")
-"""
-# 读取历史日记, 未完成,没有定义 text
-def writedarily():
-    if exists(text):
-        print "历史日记:"
-        p = open(text, "r")
-        print p.read()
-"""
-t = Text(root, bg="gray", height=600, width=400 )
-t.pack
-# 定义按钮
-b = Button(text="写日记", bg="lightblue", height=2, width=6, command=writedarily)
-b.place(x=100, y=20)
+#
 
-l = Label(root, height=20, width=70, text="2015年9月10日", fg="lightblue")
-l.place(x=100, y=20)
-root.mainloop()
+
+class Application(Frame):
+
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.pack()
+        self.mydarily()
+
+    def mydarily(self):
+        # 添加显示区域
+        self.text = Text(self, bg="gray", height=20, width=40)
+        self.text.pack()
+        # 添加退出按钮
+        self.buttonquit = Button(self, text="退出", command=self.quit)
+        self.buttonquit.pack(side=RIGHT)
+        # 添加保存按钮
+        self.buttonadd = Button(self, text="保存")
+        # 绑定按钮
+        self.buttonadd.bind()
+        self.buttonadd.pack(side=RIGHT)
+        # 添加输入框
+        self.entry = Entry(self, bg="blue")
+        g = self.entry.get()
+        self.entry.pack(side=LEFT)
+
+
+app = Application()
+app.master.title("极简日记本")
+
+app.mainloop()
