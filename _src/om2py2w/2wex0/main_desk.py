@@ -26,11 +26,12 @@ entry = Entry(root, bg="gray")
 buttonqiut = Button(root, text="退出", command=quit)
 buttonadd = Button(root, text="保存", command=save_text)
 
-exists("log.txt")
-L = open("log.txt", "r")
-r = L.read()
-text = Text(root)
-text.insert(END, r)
+if exists("log.txt"):
+    L = open("log.txt", "r")
+    r = L.read()
+    text = Text(root)
+    text.insert(END, r)
+    L.close
 
 text.pack()
 entry.pack(side=LEFT)
