@@ -13,6 +13,7 @@ def save_text():
     entry.delete(0, END)
     l = open("log.txt", "a")
     l.write(t)
+    l.write("\n")
     l.close
 
 
