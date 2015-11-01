@@ -7,6 +7,14 @@ from Tkinter import *  # import Tkinter module
 def save_text():
     t = entry.get()
     text.insert(END, t)
+    # 一行显示一行
+    text.insert(END, "\n")
+    # 插入到显示区域后, 删除输入框中的文字
+    entry.delete(0, END)
+    l = open("log.txt", "a")
+    l.write(t)
+    l.close
+
 
 root = Tk()
 root.title("极简日记本")
