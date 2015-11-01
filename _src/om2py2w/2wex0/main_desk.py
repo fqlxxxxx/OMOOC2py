@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
+# -*- coding: UTF-8 -*-
 
+from Tkinter import *
+from os.path import exists
 
-from Tkinter import *  # import Tkinter module
+root = Tk()
+root.title("极简日记本")
 
 
 def save_text():
@@ -16,15 +20,17 @@ def save_text():
     l.write("\n")
     l.close
 
-
-root = Tk()
-root.title("极简日记本")
-
 text = Text(root, height=20, width=40)
 entry = Entry(root, bg="gray")
 
 buttonqiut = Button(root, text="退出", command=quit)
 buttonadd = Button(root, text="保存", command=save_text)
+
+exists("log.txt")
+L = open("log.txt", "r")
+r = L.read()
+text = Text(root)
+text.insert(END, r)
 
 text.pack()
 entry.pack(side=LEFT)
