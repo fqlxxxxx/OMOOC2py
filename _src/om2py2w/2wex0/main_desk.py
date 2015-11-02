@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# coding=utf-8, a = '中文'
+# author : alex fu
 
 from Tkinter import *
 from os.path import exists
@@ -25,6 +25,7 @@ def save_text():
 text = Text(root, height=20, width=40)
 entry = Entry(root, bg="gray")
 
+
 buttonqiut = Button(root, text="退出", command=quit)
 buttonadd = Button(root, text="保存", command=save_text)
 
@@ -37,6 +38,7 @@ if exists("log.txt"):
 
 text.pack()
 entry.pack(side=LEFT)
+entry.bind('<Return>', save_text) # 为什么不生效?
 buttonadd.pack(side=RIGHT)
 buttonqiut.pack(side=RIGHT)
 root.mainloop()
