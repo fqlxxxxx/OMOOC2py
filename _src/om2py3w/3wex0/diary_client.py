@@ -4,6 +4,7 @@
 import socket
 from os.path import exists
 
+
 while exists("log.txt"):
     r = open("log.txt", "r")
     print r.read()
