@@ -2,6 +2,12 @@
 
 
 import socket
+from os.path import exists
+
+while exists("log.txt"):
+    r = open("log.txt", "r")
+    print r.read()
+    break
 
 buffer = 1024
 server_addr = ("localhost", 8888)
@@ -13,7 +19,7 @@ while True:
         print "您已退出日记!!"
         break
     client_s.sendto(input, server_addr)
-    data, server_addr = client_s.recvfrom(buffer)
-    print "收到:", data
+    client_s.recvfrom(buffer)
+    print "已提交!"
 
 client_s.close
