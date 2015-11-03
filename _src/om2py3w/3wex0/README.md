@@ -7,7 +7,7 @@
  
  ```python diary_client.py```
 - 显示如下:
-![](/Users/alex/OMOOC2py/_src/om2py3w/3wex0/jietu.png)
+![](fqlxxxxx／OMOOC2py/_src/om2py3w/3wex0/jietu.png)
 
 - 客户端输入"quit"退出
 
