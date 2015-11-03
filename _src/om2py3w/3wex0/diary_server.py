@@ -4,14 +4,18 @@ import socket
 
 buffer = 1024
 server_addr = ("localhost", 8888)
-s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+server_s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-s.bind(server_addr)
+server_s.bind(server_addr)
 
 while True:
-    print "正在同步数据"
-    data, server_addr = s.recvfrom(buffer)
-    print "同步以下数据:", data
-    s.sendto(data, server_addr)
-    print" 已经同步完毕!"
-s.close
+    print "准备在同步数据..."
+    data, client_addr = server_s.recvfrom(buffer)
+    print "收到数据:", data
+    L = open("log.txt", "a")
+    L.write(data + "\n")
+    L.close()
+    server_s.sendto(data, client_addr)
+
+
+server_s.close
