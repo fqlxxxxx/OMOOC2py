@@ -6,6 +6,7 @@ from os.path import exists
 
 
 while exists("log.txt"):
+    print "历史日记:"
     r = open("log.txt", "r")
     print r.read()
     break
