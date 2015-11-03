@@ -8,9 +8,12 @@ client_addr = ("localhost", 8888)
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 while True:
-    print "正在与服务器同步"
-    input = raw_input("快来记录你的一天:")
+    input = raw_input("请输入:")
+    if input == "quit":
+    	print "您已退出日记!!"
+        break
     s.sendto(input, client_addr)
     data = s.recvfrom(buffer)
-    print "同步完成"
+    print "收到:", data
+
 s.close
