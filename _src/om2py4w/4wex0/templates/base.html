@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+   {% if title %}
+   <title>{{name}}的极简笔记本</title>
+   {% else %}
+   <title> 极简笔记本</title>
+   {% endif %}
+  </head>
+  <body>
+   {{% block %}}{{endblock}}  
+  </body>
+</html>
+
