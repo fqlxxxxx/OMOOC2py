@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+   {% if title %}
+   <title>{{name}}的极简笔记本</title>
+   {% else %}
+   <title>极简笔记本</title>
+   {% endif %}
+  </head>
+  <body>
+   <h1>欢迎使用极简日记本</h1>
+<form role="form">
+   <button type="button" class="btn btn-default" onclick="window.location.href='write_diary'">写笔记</button>
+   <button type="button" class="btn btn-default" onclick="window.location.href='history'">查看历史笔记</button>
+</form>
+  </body>
+</html>

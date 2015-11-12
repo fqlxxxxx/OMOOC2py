@@ -1,0 +1,23 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+   {% if title %}
+   <title>{{name}}的极简笔记本</title>
+   {% else %}
+   <title> 极简笔记本</title>
+   {% endif %}
+  </head>
+  <body>
+<form role="form">
+   <div class="container">
+     <div class="jumbotron">
+        <h1>欢迎登陆页面！</h1>
+        <p>这是一个超大屏幕（Jumbotron）的实例。</p>
+     </div>
+   </div>
+   <button type="button" class="btn btn-default" onclick="window.location.href='index'">返回首页</button>
+   <button type="button" class="btn btn-default" onclick="window.location.href='write_diary'">写日记</button>
+</form>
+  </body>
+</html>
