@@ -14,11 +14,11 @@
       <label for="name"></label>
       <input type="text" name="content" class="form-control" id="name"
          placeholder="请输入笔记">
+       <button type="submit" class="btn btn-default">提交笔记</button>
    </div>
-   <button type="submit" class="btn btn-default">提交笔记</button>
-   <button type="button" class="btn btn-default" onclick="window.location.href='history'">查看历史笔记</button>
-   <p>======历史笔记=======</p>
-    <textarea rows=20 >{{diary_content}}</textarea>
+
+   <p>========历史笔记========</p>
+    <textarea rows=40 cols=30>{{diary_content}}</textarea>
 </form>
   </body>
 </html>

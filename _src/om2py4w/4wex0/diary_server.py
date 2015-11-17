@@ -2,10 +2,11 @@
 
 import socket
 import datetime
+import diary_web
 
 
 buffer = 1024
-server_addr = ("localhost", 8888)
+server_addr = ("localhost", 8000)
 server_s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 server_s.bind(server_addr)

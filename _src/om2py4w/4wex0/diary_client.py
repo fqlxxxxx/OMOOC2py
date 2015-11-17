@@ -12,7 +12,7 @@ while exists("log.txt"):
     break
 
 buffer = 1024
-server_addr = ("localhost", 8888)
+server_addr = ("localhost", 8000)
 client_s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 while True:
@@ -25,3 +25,4 @@ while True:
     print "已提交!"
 
 client_s.close
+
