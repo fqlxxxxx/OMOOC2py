@@ -3,34 +3,48 @@
 
 from bottle import route, run, jinja2_template, request, get, post
 
+#从txt读取中文时不报错
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
-# 主页面
+'''
+def read_diary():
+    r = open("log.txt", "r")
+    # rd = r.readline()
+    # r.close()
+        return line
+'''
+
+def read_history():
+    r = open("log.txt", "r")
+    rh = r.read()
+    r.close()
+    return rh
+
+
+def writing(diary_content):
+    w = open("log.txt", "a")
+    w.write('%s ' % diary_content + "\n")
+    w.close()
+
+
 @route("/")
-@route("/index")
-def index():
-    return jinja2_template('index.html')
-
-
-# 写日记页面
-@route("/write_diary")
-@get("/write_diary")
-def write_diary_form():
-    return jinja2_template('write_diary.html')
-
-
-@route("/write_diary")
-@post("/write_diary")
+@route("/write_diary", method="POST")
 def write_diary():
-    diary_content = request.forms.get('diary_content')
+    diary_content = request.forms.get("content")
+    writing(diary_content)
+    #save_content = read_diary()
+    diary_content = read_history()
     return jinja2_template('write_diary.html', diary_content=diary_content)
-
 
 
 # 查看历史笔记
 @route("/history")
 def history():
-    return jinja2_template('history.html')
+    log_history = read_history()
+    return jinja2_template('history.html', log_history=log_history)
 
 
-run(host='localhost', port=5000, reloader=True)
+run(host='localhost', port=8000, reloader=True)
 

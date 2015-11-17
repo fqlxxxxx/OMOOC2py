@@ -12,12 +12,13 @@
 <form role="form" method="post" action="/write_diary">
    <div class="form-group">
       <label for="name"></label>
-      <input type="text" name="diary_content" class="form-control" id="name" 
+      <input type="text" name="content" class="form-control" id="name"
          placeholder="请输入笔记">
    </div>
    <button type="submit" class="btn btn-default">提交笔记</button>
-   <button type="button" class="btn btn-default" onclick="window.location.href='index'">返回首页</button>
-   <p>保存的笔记: {{ diary_content }}</p>
+   <button type="button" class="btn btn-default" onclick="window.location.href='history'">查看历史笔记</button>
+   <p>======历史笔记=======</p>
+    <textarea rows=20 >{{diary_content}}</textarea>
 </form>
   </body>
 </html>
